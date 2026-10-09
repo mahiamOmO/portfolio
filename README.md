@@ -30,7 +30,6 @@ This portfolio is designed as a clean, responsive, and easy-to-maintain personal
 - Selected projects and project details
 - Posts or additional work
 
-The visual direction is inspired by [craftzdog's homepage](https://www.craftz.dog/), with a personal design and content structure tailored for Mahia Akter Momo.
 
 ## 🔗 Live Website
 
