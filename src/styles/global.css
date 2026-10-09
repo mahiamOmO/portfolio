@@ -984,9 +984,14 @@ main > *:nth-child(4) {
   .posts-grid {
     grid-template-columns: 1fr;
     width: 100%;
+    max-width: none;
     gap: 1.35rem;
   }
   .post-card {
+    width: 100%;
+  }
+  .post-image-wrap,
+  .post-image {
     width: 100%;
   }
   .post-card h2 {
