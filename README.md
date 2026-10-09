@@ -177,6 +177,12 @@ The portfolio keeps the required attribution link in the footer. The original 3D
 
 This portfolio is a personal project. Please contact the author before reusing its content, personal information, or artwork.
 
+<a href="https://www.buymeacoffee.com/sumontasahi">
+  <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" width="150"/>
+</a>
+
+</div>
+
 <p align="center">
   <em>Developed with ❤️ by Mahia Momo</em>
 </p>
