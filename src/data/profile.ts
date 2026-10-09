@@ -136,20 +136,44 @@ export const skills = [
 
 export const projects = [
   {
+    slug: 'mahia-portfolio',
+    title: 'Mahia Portfolio',
+    category: 'Portfolio Website',
+    image: '/images/portfolio.png',
+    description:
+      'A personal portfolio website showcasing my projects, skills, experience, and blog posts.',
+    stack: ['Astro', 'TypeScript', 'CSS', 'JavaScript'],
+    link: 'https://github.com/mahiamOmO/portfolio',
+    liveLink: 'https://mahiamomo-portfolio.vercel.app/'
+  },
+  {
+    slug: 'momo-golpo-kotha',
+    title: 'Momo Golpo Kotha',
+    category: 'Bilingual Blog Website',
+    image: '/images/momo-golpo-kotha.png',
+    description:
+      'A bilingual blog website for sharing stories and writing in Bangla and English.',
+    stack: ['HTML', 'CSS', 'JavaScript'],
+    link: 'https://github.com/mahiamOmO/Momo-Golpo-Kotha'
+  },
+  {
     slug: 'failure-risk-prediction',
     title: 'Failure Risk Prediction',
     category: 'TPS ML Web App',
+    image: '/images/failure-risk.png',
     description:
-      'A web application that predicts product failure risk using the TPS dataset and an XGBoost model. Built with Flask, it provides a user-friendly interface to input product parameters and get real-time risk predictions.',
+      'A Flask web app that predicts product failure risk with an XGBoost model.',
     stack: ['Python', 'Flask', 'Flask-CORS', 'XGBoost', 'Scikit-learn', 'Joblib', 'Pandas', 'NumPy', 'HTML', 'JavaScript', 'CSS'],
-    link: 'https://github.com/mahiamOmO'
+    link: 'https://github.com/mahiamOmO/Failure-Risk-Prediction',
+    liveLink: 'https://failure-risk-prediction.vercel.app/'
   },
   {
     slug: 'daily-task-prioritization-agent',
     title: 'Daily Task Prioritization Agent',
     category: 'AI Agent',
+    image: '/images/daily-task-agent.webp',
     description:
-      'An intelligent full-stack task management application that uses AI to prioritize and manage daily tasks. It features a modern Next.js frontend and a scalable FastAPI backend, offering smooth task handling and responsive design.',
+      'An AI-powered task manager that prioritizes daily tasks with a modern full-stack interface.',
     stack: ['Next.js', 'TypeScript', 'Tailwind CSS', 'shadcn/ui', 'Lucide Icons', 'FastAPI', 'Python', 'Uvicorn', 'Pydantic'],
     link: 'https://github.com/mahiamOmO'
   },
@@ -157,8 +181,9 @@ export const projects = [
     slug: 'books-vibes',
     title: 'Books Vibes',
     category: 'Full Stack',
+    image: '/images/book-vibes.png',
     description:
-      'A Django-based online bookstore where users can browse books, add them to their cart, and place orders seamlessly.',
+      'A Django bookstore for browsing books, managing carts, and placing orders.',
     stack: ['Python', 'Django', 'SQLite', 'HTML', 'CSS', 'JavaScript', 'Bootstrap'],
     link: 'https://github.com/mahiamOmO'
   },
@@ -166,9 +191,48 @@ export const projects = [
     slug: 'uap-alumni-connect',
     title: 'UAP Alumni Connect',
     category: 'Full Stack',
+    image: '/images/uap-alumni-connect.png',
     description:
-      'An online platform connecting UAP alumni, students, and faculty through profile browsing, networking, and community engagement.',
+      'A networking platform connecting UAP alumni, students, and faculty.',
     stack: ['React.js', 'HTML', 'CSS', 'JavaScript', 'Firebase Auth', 'Supabase', 'PostgreSQL', 'Node.js', 'Express.js'],
     link: 'https://github.com/mahiamOmO'
+  }
+]
+
+export const posts = [
+  {
+    title: 'Use Wakatime and Initialize Your Coding Time',
+    image: '/images/blog1.webp',
+    platform: 'Dev.to',
+    platformKey: 'devto',
+    link: 'https://dev.to/mahiamomo/use-wakatime-and-initialize-your-coding-time-5h6k'
+  },
+  {
+    title: 'DOM কী? DOM নিয়ে কিছু বেসিক কথা!',
+    image: '/images/blog2.webp',
+    platform: 'Medium',
+    platformKey: 'medium',
+    link: 'https://medium.com/@mahiamomo12/dom-%E0%A6%95%E0%A7%80-dom-%E0%A6%A8%E0%A6%BF%E0%A7%9F%E0%A7%87-%E0%A6%95%E0%A6%BF%E0%A6%9B%E0%A7%81-%E0%A6%AC%E0%A7%87%E0%A6%B8%E0%A6%BF%E0%A6%95-%E0%A6%95%E0%A6%A5%E0%A6%BE-b009b4427f0c'
+  },
+  {
+    title: 'How I Hacked My Brain to Crave Coding Every Day',
+    image: '/images/blog3.webp',
+    platform: 'Hashnode',
+    platformKey: 'hashnode',
+    link: 'https://mahiamomo.hashnode.dev/how-i-hacked-my-brain-to-crave-coding-every-day'
+  },
+  {
+    title: '16 Essential Qualities That Prove You Are a Skilled Programmer',
+    image: '/images/blog4.webp',
+    platform: 'Hashnode',
+    platformKey: 'hashnode',
+    link: 'https://mahiamomo.hashnode.dev/16-essential-qualities-that-prove-you-are-a-skilled-programmer'
+  },
+  {
+    title: 'Does SaaS Offer the Features of a Programming Language?',
+    image: '/images/blog5.webp',
+    platform: 'Dev.to',
+    platformKey: 'devto',
+    link: 'https://dev.to/mahiamomo/is-saas-giving-us-the-flavour-of-programming-language-2jo4'
   }
 ]

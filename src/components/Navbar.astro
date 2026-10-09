@@ -9,6 +9,7 @@ const { path } = Astro.props
 
 const links = [
   { href: '/works', label: 'Works' },
+  { href: '/posts', label: 'Posts' },
   { href: '/experience', label: 'Experience' },
   { href: '/skills', label: 'Skills' }
 ]
@@ -20,7 +21,7 @@ const isActive = (href: string) => path.startsWith(href)
   <div class="navbar-inner">
     <div class="nav-left">
       <a href="/" class="logo" aria-label="Home">
-        <img src="/profile.jpg" alt="" aria-hidden="true" />
+        <img src="/images/profile.jpg" alt="" aria-hidden="true" />
         {profile.name}
       </a>
       <div class="nav-links">

@@ -1,14 +1,17 @@
 ---
 interface Props {
+  slug: string
   title: string
   category: string
   description: string
   stack: string[]
   link: string
+  liveLink?: string
+  image?: string
   index?: number
 }
 
-const { title, category, description, stack, link, index = 0 } = Astro.props
+const { slug, title, category, description, stack, link, liveLink, image, index = 0 } = Astro.props
 
 const gradients = [
   'linear-gradient(135deg, #88ccca, #5aa5c8)',
@@ -24,14 +27,16 @@ const initials = title
   .toUpperCase()
 ---
 
-<a href={link} target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: none;">
-  <article class="card work-card">
-    <div class="thumb" style={`background: ${gradients[index % gradients.length]}`}>{initials}</div>
+<article class:list={['work-card', slug === 'mahia-portfolio' && 'portfolio-card']}>
+  <a class="project-main-link" href={`/works/${slug}`} aria-label={`View details for ${title}`}>
+    {
+      image ? (
+        <img class="thumb project-image" src={image} alt={`${title} project preview`} />
+      ) : (
+        <div class="thumb" style={`background: ${gradients[index % gradients.length]}`}>{initials}</div>
+      )
+    }
     <h3>{title}</h3>
-    <p class="meta" style="margin-bottom: 0.5rem;">{category}</p>
-    <p>{description}</p>
-    <div class="tags">
-      {stack.map((s) => <span class="tag">{s}</span>)}
-    </div>
-  </article>
-</a>
+    <p class="project-description">{description}</p>
+  </a>
+</article>

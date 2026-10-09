@@ -1,7 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro'
 import HeroArt from '../components/HeroArt.astro'
-import { profile, projects } from '../data/profile'
+import { profile } from '../data/profile'
 
 const initials = profile.name
   .split(' ')
@@ -50,7 +50,7 @@ const loves = [
     </div>
     <div class="avatar">
       <span>{initials}</span>
-      <img src="/profile.jpg" alt={profile.name} onerror="this.style.display='none'" />
+      <img src="/images/profile.jpg" alt={profile.name} onerror="this.style.display='none'" />
     </div>
   </div>
 
@@ -62,7 +62,17 @@ const loves = [
       {profile.interest}
     </p>
     <div class="center">
-      <a class="btn" href="/works">My portfolio <span aria-hidden="true">›</span></a>
+      <a
+        class="btn"
+        href="https://mahiamomo-portfolio.vercel.app/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        My portfolio <span aria-hidden="true">›</span>
+      </a>
+      <a class="btn resume-btn" href="/Mahia_Akter_Momo_Resume.pdf" target="_blank" rel="noopener noreferrer">
+        Resume <span aria-hidden="true">↓</span>
+      </a>
     </div>
   </section>
 
@@ -115,25 +125,29 @@ const loves = [
     </ul>
   </section>
 
-  <section>
-    <h2 class="section-title">Latest works</h2>
-    <div class="stack">
-      {
-        projects.slice(0, 2).map((p) => (
-          <a href="/works" style="color: inherit; text-decoration: none;">
-            <article class="card">
-              <div class="card-head">
-                <h3>{p.title}</h3>
-                <p class="meta">{p.category}</p>
-              </div>
-              <p style="margin: 0.4rem 0 0;">{p.description}</p>
-            </article>
-          </a>
-        ))
-      }
-    </div>
-    <div class="center">
-      <a class="btn" href="/works">See all works <span aria-hidden="true">›</span></a>
+  <section class="highlights-section">
+    <div class="highlights-grid">
+      <article class="highlight-item">
+        <div class="highlight-icon" aria-hidden="true">🏅</div>
+        <div class="highlight-divider"></div>
+        <h2>Freelance Excellence Award</h2>
+        <p class="highlight-date">UCASM CSE Department</p>
+        <p>Received an award for excellence in freelancing from the UCASM CSE Department.</p>
+      </article>
+      <article class="highlight-item">
+        <div class="highlight-icon" aria-hidden="true">📰</div>
+        <div class="highlight-divider"></div>
+        <h2>First Newspaper Article</h2>
+        <p class="highlight-date">Ittefaq</p>
+        <p>Wrote about cyberbullying and online safety for Ittefaq.</p>
+      </article>
+      <article class="highlight-item">
+        <div class="highlight-icon" aria-hidden="true">🥇</div>
+        <div class="highlight-divider"></div>
+        <h2>Hackathons</h2>
+        <p class="highlight-date">2024 – 2025</p>
+        <p>Top 10 finalist at Technovation25 · Top 20 at INNOVATEX 2025</p>
+      </article>
     </div>
   </section>
 
