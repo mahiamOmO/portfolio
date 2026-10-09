@@ -983,7 +983,7 @@ main > *:nth-child(4) {
   }
   .posts-grid {
     grid-template-columns: 1fr;
-    width: min(100%, 300px);
+    width: 100%;
     gap: 1.35rem;
   }
   .post-card {
