@@ -24,7 +24,7 @@ const isActive = (href: string) => path.startsWith(href)
         <img src="/images/profile.jpg" alt="" aria-hidden="true" />
         {profile.name}
       </a>
-      <div class="nav-links">
+      <div class="nav-links" id="nav-links">
         {
           links.map((l) => (
             <a href={l.href} class={isActive(l.href) ? 'active' : ''}>
@@ -35,9 +35,14 @@ const isActive = (href: string) => path.startsWith(href)
         <a href={profile.github} target="_blank" rel="noopener noreferrer">GitHub</a>
       </div>
     </div>
-    <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Toggle theme">
+    <div class="nav-actions">
+      <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Toggle theme">
       <span class="moon">🌙</span><span class="sun">☀️</span>
-    </button>
+      </button>
+      <button class="menu-toggle" id="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="nav-links">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
   </div>
 </nav>
 
@@ -49,5 +54,12 @@ const isActive = (href: string) => path.startsWith(href)
     try {
       localStorage.setItem('theme', next)
     } catch (e) {}
+  })
+
+  document.getElementById('menu-toggle').addEventListener('click', function () {
+    var links = document.getElementById('nav-links')
+    var isOpen = links.classList.toggle('is-open')
+    this.setAttribute('aria-expanded', String(isOpen))
+    this.setAttribute('aria-label', isOpen ? 'Close navigation' : 'Open navigation')
   })
 </script>

@@ -15,7 +15,7 @@ const path = Astro.url.pathname
 ---
 
 <!doctype html>
-<html lang="en" data-theme="light">
+<html lang="en" data-theme="light" class:list={{ 'home-page': path === '/' }}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -41,7 +41,7 @@ const path = Astro.url.pathname
   </head>
   <body>
     <Navbar path={path} />
-    <main>
+    <main class:list={{ 'home-main': path === '/' }}>
       <slot />
     </main>
     <Footer />
