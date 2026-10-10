@@ -614,6 +614,14 @@ section {
   line-height: 1.25;
 }
 
+.works-title.section-title,
+.page-header .section-title {
+  text-decoration: underline;
+  text-decoration-color: var(--underline);
+  text-decoration-thickness: 4px;
+  text-underline-offset: 6px;
+}
+
 /* ---------- Posts grid ---------- */
 .posts-section {
   margin-top: 0;
