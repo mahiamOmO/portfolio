@@ -1,0 +1,35 @@
+---
+import Layout from '../layouts/Layout.astro'
+import ProjectCard from '../components/ProjectCard.astro'
+import { projects, competitions, profile } from '../data/profile'
+---
+
+<Layout title="Works" description="Projects and hackathons by Mahia Akter Momo.">
+  <h1 class="works-title">Works</h1>
+
+  <div class="grid">
+    {projects.map((p, i) => <ProjectCard {...p} index={i} />)}
+  </div>
+
+  <section>
+    <h2 class="section-title">Competitions</h2>
+    <div class="stack">
+      {
+        competitions.map((c) => (
+          <article class="card">
+            <div class="card-head">
+              <h3>{c.name}</h3>
+              <p class="meta">{c.date}</p>
+            </div>
+            <p class="meta" style="margin-top: 0.1rem;">{c.host}</p>
+            <p style="margin: 0.4rem 0 0;">{c.result}</p>
+          </article>
+        ))
+      }
+    </div>
+  </section>
+
+  <div class="center">
+    <a class="btn" href={profile.github} target="_blank" rel="noopener noreferrer">More on GitHub <span aria-hidden="true">›</span></a>
+  </div>
+</Layout>

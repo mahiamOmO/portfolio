@@ -1,0 +1,161 @@
+---
+import Layout from '../layouts/Layout.astro'
+import HeroArt from '../components/HeroArt.astro'
+import { profile } from '../data/profile'
+
+const initials = profile.name
+  .split(' ')
+  .filter((_, i, a) => i === 0 || i === a.length - 1)
+  .map((w) => w[0])
+  .join('')
+
+const bio = [
+  { year: '2022', text: 'Started B.Sc in Computer Science and Engineering at the University of Asia Pacific.' },
+  { year: '2024', text: 'Top 40 out of 70+ teams at the UAP Intra University Collaborative Programming Contest 1.0.' },
+  {
+    year: '2025',
+    text: 'Competed in hackathons: MIST Inventious 4.1 (Finalist), INNOVATEX 2025 (Top 20), Technovation25 (Top 10), and Solvio AI Hackathon (Top 394 of 3,259+ teams).'
+  },
+  { year: '2025–26', text: 'Intern, AI Data Annotation & Quality at Agency Handy, Dhaka.' },
+  { year: '2026', text: 'Completed B.Sc in Computer Science and Engineering.' },
+  { year: '2026 to present', text: 'Student Researcher at ELITE Research Lab LLC, Queens, New York (CV, NLP, LLMs, GenAI).' }
+]
+
+// readme-typing-svg banners (external, animated SVGs)
+const typingHeading =
+  "https://readme-typing-svg.herokuapp.com/?font=Righteous&size=35&center=true&vCenter=true&width=500&height=70&duration=4000&lines=Hi+There!+👋;+I'm+Mahia+Akter+Momo!;"
+
+const loves = [
+  'Artificial Intelligence',
+  'Machine Learning',
+  'Computer Vision',
+  'Data-centric AI',
+  'Dataset Quality',
+  'Generative AI & LLMs',
+  'Hackathons'
+]
+---
+
+<Layout>
+  <HeroArt />
+
+  <div class="typing">
+    <img src={typingHeading} alt="Hi There! I'm Mahia Akter Momo!" width="500" height="70" />
+  </div>
+
+  <div class="intro">
+    <div>
+      <h1>{profile.name}</h1>
+      <p class="role">{profile.role} ( AI / Computer Vision / Data Annotation )</p>
+    </div>
+    <div class="avatar">
+      <span>{initials}</span>
+      <img src="/images/profile.jpg" alt={profile.name} onerror="this.style.display='none'" />
+    </div>
+  </div>
+
+  <section>
+    <h2 class="section-title">Work</h2>
+    <p class="lede">
+      {profile.name.split(' ')[0]} is a Machine Learning Engineer and Computer Science graduate based in Dhaka. {profile.summary}
+      She is currently a Student Researcher at ELITE Research Lab LLC, working on Computer Vision, NLP, LLMs and Generative AI.
+      {profile.interest}
+    </p>
+    <div class="center">
+      <a
+        class="btn"
+        href="https://mahiamomo-portfolio.vercel.app/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        My portfolio <span aria-hidden="true">›</span>
+      </a>
+      <a class="btn resume-btn" href="/Mahia_Akter_Momo_Resume.pdf" target="_blank" rel="noopener noreferrer">
+        Resume <span aria-hidden="true">↓</span>
+      </a>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="section-title">Bio</h2>
+    <div class="bio">
+      {
+        bio.map((b) => (
+          <div class="bio-row">
+            <span class="bio-year">{b.year}</span>
+            <span class="bio-text">{b.text}</span>
+          </div>
+        ))
+      }
+    </div>
+  </section>
+
+  <section>
+    <h2 class="section-title">I ♥</h2>
+    <p class="lede">{loves.join(', ')}</p>
+  </section>
+
+  <section>
+    <h2 class="section-title">On the web</h2>
+    <ul class="links">
+      <li>
+        <a href={profile.github} target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
+          @mahiamOmO
+        </a>
+      </li>
+      <li>
+        <a href={profile.linkedin} target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 110-4.12 2.06 2.06 0 010 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"></path></svg>
+          @mahiamomo12
+        </a>
+      </li>
+      <li>
+        <a href={`mailto:${profile.email}`}>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 6a2 2 0 012-2h16a2 2 0 012 2v.5l-10 6.25L2 6.5V6zm0 3.1V18a2 2 0 002 2h16a2 2 0 002-2V9.1l-10 6.25L2 9.1z"></path></svg>
+          {profile.email}
+        </a>
+      </li>
+      <li>
+        <a href={profile.website} target="_blank" rel="noopener noreferrer">
+          <span aria-hidden="true">🌐</span>
+          mahiamomo-portfolio.vercel.app
+        </a>
+      </li>
+    </ul>
+  </section>
+
+  <section class="highlights-section">
+    <div class="highlights-grid">
+      <article class="highlight-item">
+        <div class="highlight-icon" aria-hidden="true">🏅</div>
+        <div class="highlight-divider"></div>
+        <h2>Freelance Excellence Award</h2>
+        <p class="highlight-date">UCASM CSE Department</p>
+        <p>Received an award for excellence in freelancing from the UCASM CSE Department.</p>
+      </article>
+      <article class="highlight-item">
+        <div class="highlight-icon" aria-hidden="true">📰</div>
+        <div class="highlight-divider"></div>
+        <h2>First Newspaper Article</h2>
+        <p class="highlight-date">Ittefaq</p>
+        <p>Wrote about cyberbullying and online safety for Ittefaq.</p>
+      </article>
+      <article class="highlight-item">
+        <div class="highlight-icon" aria-hidden="true">🥇</div>
+        <div class="highlight-divider"></div>
+        <h2>Hackathons</h2>
+        <p class="highlight-date">2024 – 2025</p>
+        <p>Top 10 finalist at Technovation25 · Top 20 at INNOVATEX 2025</p>
+      </article>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="section-title">Contact</h2>
+    <p>Open to ML engineering, research and AI data quality opportunities. Feel free to reach out!</p>
+    <div class="center">
+      <a class="btn" href={`mailto:${profile.email}`}>✉ Email me</a>
+    </div>
+  </section>
+</Layout>

@@ -1,0 +1,65 @@
+---
+import { profile } from '../data/profile'
+
+interface Props {
+  path: string
+}
+
+const { path } = Astro.props
+
+const links = [
+  { href: '/works', label: 'Works' },
+  { href: '/posts', label: 'Posts' },
+  { href: '/experience', label: 'Experience' },
+  { href: '/skills', label: 'Skills' }
+]
+
+const isActive = (href: string) => path.startsWith(href)
+---
+
+<nav class="navbar" aria-label="Main navigation">
+  <div class="navbar-inner">
+    <div class="nav-left">
+      <a href="/" class="logo" aria-label="Home">
+        <img src="/images/profile.jpg" alt="" aria-hidden="true" />
+        {profile.name}
+      </a>
+      <div class="nav-links" id="nav-links">
+        {
+          links.map((l) => (
+            <a href={l.href} class={isActive(l.href) ? 'active' : ''}>
+              {l.label}
+            </a>
+          ))
+        }
+        <a href={profile.github} target="_blank" rel="noopener noreferrer">GitHub</a>
+      </div>
+    </div>
+    <div class="nav-actions">
+      <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Toggle theme">
+      <span class="moon">🌙</span><span class="sun">☀️</span>
+      </button>
+      <button class="menu-toggle" id="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="nav-links">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<script is:inline>
+  document.getElementById('theme-toggle').addEventListener('click', function () {
+    var root = document.documentElement
+    var next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark'
+    root.setAttribute('data-theme', next)
+    try {
+      localStorage.setItem('theme', next)
+    } catch (e) {}
+  })
+
+  document.getElementById('menu-toggle').addEventListener('click', function () {
+    var links = document.getElementById('nav-links')
+    var isOpen = links.classList.toggle('is-open')
+    this.setAttribute('aria-expanded', String(isOpen))
+    this.setAttribute('aria-label', isOpen ? 'Close navigation' : 'Open navigation')
+  })
+</script>

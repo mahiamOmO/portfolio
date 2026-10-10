@@ -1,0 +1,45 @@
+---
+import Layout from '../../layouts/Layout.astro'
+import { projects } from '../../data/profile'
+
+export function getStaticPaths() {
+  return projects.map((project) => ({
+    params: { slug: project.slug },
+    props: { project }
+  }))
+}
+
+const { project } = Astro.props
+---
+
+<Layout title={project.title} description={project.description}>
+  <article class="project-detail">
+    <a href="/works">Works <span aria-hidden="true">›</span></a>
+    <h1>{project.title}</h1>
+    <p class="project-detail-category">{project.category}</p>
+
+    {project.image && <img class="project-detail-image" src={project.image} alt={`${project.title} preview`} />}
+
+    <p class="project-detail-description">{project.description}</p>
+
+    <div class="project-detail-links">
+      {
+        project.liveLink && (
+          <div>
+            <span class="project-detail-label">Website</span>
+            <a href={project.liveLink} target="_blank" rel="noopener noreferrer">{project.liveLink}</a>
+          </div>
+        )
+      }
+      <div>
+        <span class="project-detail-label">GitHub</span>
+        <a href={project.link} target="_blank" rel="noopener noreferrer">{project.link}</a>
+      </div>
+    </div>
+
+    <h2 class="section-title">Stack</h2>
+    <div class="project-detail-stack">
+      {project.stack.map((technology) => <span class="tag">{technology}</span>)}
+    </div>
+  </article>
+</Layout>

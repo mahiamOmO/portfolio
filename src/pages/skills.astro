@@ -1,0 +1,21 @@
+---
+import Layout from '../layouts/Layout.astro'
+import { skills } from '../data/profile'
+---
+
+<Layout title="Skills" description="Technical skills of Mahia Akter Momo.">
+  <h1 class="section-title" style="font-size: 1.6rem;">Skills</h1>
+
+  <div class="stack">
+    {
+      skills.map((s) => (
+        <article class="card">
+          <h3>{s.group}</h3>
+          <div class="tags">
+            {s.items.map((i) => <span class="tag">{i}</span>)}
+          </div>
+        </article>
+      ))
+    }
+  </div>
+</Layout>
